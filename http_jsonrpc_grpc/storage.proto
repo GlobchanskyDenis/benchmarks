@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// protoc --go_out=plugins=grpc:. *.proto
+
+package grpc_storage;
+
+message Token {
+	uint64 Idjwt = 1;
+	string Token = 2;
+}
+
+message FilePath {
+	string Path = 1;
+}
+
+// grpc-сервис проверки авторизации
+service FileStorage {
+    rpc SaveToken (Token) returns (FilePath) {}
+    rpc GetToken (FilePath) returns (Token) {}
+}
