@@ -13,7 +13,7 @@ message FilePath {
 	string Path = 1;
 }
 
-// grpc-сервис проверки авторизации
+// grpc-сервис хранения файлов
 service FileStorage {
     rpc SaveToken (Token) returns (FilePath) {}
     rpc GetToken (FilePath) returns (Token) {}
